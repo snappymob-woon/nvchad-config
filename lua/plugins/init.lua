@@ -13,6 +13,21 @@ return {
     end,
   },
 
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      local conf = require "nvchad.configs.cmp"
+      local cmp = require "cmp"
+
+      conf.mapping["<CR>"] = nil
+      conf.mapping["<S-Tab>"] = nil
+      conf.mapping["<Tab>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      }
+    end,
+  },
+
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
